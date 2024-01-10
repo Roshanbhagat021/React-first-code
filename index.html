@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxes</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+</body>
+
+</html>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script>
+// styling
+    let containerStyling = {
+        width: "100vw",
+        height: "200px",
+        backgroundColor: "#FFE4C4",
+        padding: "20px",
+        gap: "20px",
+        position: "relative",
+        border: "2px solid black"
+    }
+
+
+    let smalldivStyling1 = {
+        backgroundColor: "red",
+        border: "2px solid black"
+
+    }
+    let smalldivStyling2 = {
+        backgroundColor: "yellow",
+        border: "2px solid black"
+
+    }
+    let smalldivStyling3 = {
+        backgroundColor: "green",
+        border: "2px solid black"
+
+    }
+    let smalldivStyling4 = {
+        backgroundColor: "purple",
+        border: "2px solid black"
+
+    }
+
+    let innerDiv = {
+        position: "absolute",
+        width: "800px",
+        height: "150px",
+        display: "grid",
+        gridTemplateColumns: "repeat(4,1fr)",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        gap: "20px"
+    }
+// styling ends here
+
+    let element = React.createElement("div", {
+        className: "container",
+        style: containerStyling,
+    }, "parent", children = React.createElement("div", { className: "innerDivs", style: innerDiv },
+        children = [React.createElement("div", { style: smalldivStyling1 }, 1), React.createElement("div", { style: smalldivStyling2 }, 2), React.createElement("div", { style: smalldivStyling3 }, 3), React.createElement("div", { style: smalldivStyling4 }, 4)]),
+    )
+
+    let reactroot = ReactDOM.createRoot(document.getElementById("root"))
+
+    reactroot.render(element)
+</script>
